@@ -1,11 +1,10 @@
 "use client";
 
 import { useForm } from "react-hook-form";
-//import { useRouter } from "next/navigation";
 import Link from "next/link";
 import React, { useState } from "react";
 import RippleButton from "@/components/buttons/RippleButton";
-import { signUpWithCredential } from "@/app/_authActions";
+import { findUserByEmail, signUpWithCredential } from "@/app/_authActions";
 import { toast } from "sonner";
 
 const Register = () => {
@@ -21,9 +20,18 @@ const Register = () => {
   const onSubmit = async (data) => {
     const { name, email, password } = data;
 
-    const res = await signUpWithCredential({ name, email, password })
+    const userExist = await findUserByEmail(email)
+   
+    if (userExist) {
+      toast.info('user already exist')
+    } else {
+      setIsLoading(true)
+      const res = await signUpWithCredential({ name, email, password })
+  
+      if (res?.msg) toast.success(`Email verification send to ${email}`)
+      setIsLoading(false)
+    }
 
-    if (res?.msg) toast.success(`Email verification send to ${email}`)
   };
 
 
@@ -149,9 +157,10 @@ const Register = () => {
 
         <RippleButton
           text={isLoading ? "Loading..." : "Register"}
-          buttonClasses={"w-full mt-10 text-xl rounded-md bg-skin-fill text-skin-inverted p-2"}
+          buttonClasses={"w-full mt-10 text-xl rounded-md bg-skin-fill text-skin-inverted p-2 "}
           type="submit"
           disabled={isLoading}
+          isLoading={isLoading}
         />
       </form>
 

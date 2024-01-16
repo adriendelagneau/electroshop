@@ -12,30 +12,6 @@ import { connectToDatabase } from "@/lib/db"
 const BASE_URL= process.env.NEXT_PUBLIC_NEXTAUTH_URL
 
 
-
-export const updateUser = async ({ name, image }) => {
-    
-    await connectToDatabase()
-
-    const session = await getServerSession(authOptions)
-
-    if (!session) throw new Error('unauthaurize')
-    
-    try {
-        const user = await User.findByIdAndUpdate(session?.user?._id, {
-            name, image
-        }, {
-            new: true
-        }).select('-password')
-
-        if(!user) throw new Error("no user found")
-        
-        return {msg: "user update seccessfully"}
-    } catch (err) {
-        redirect(`/errors?errror=${err.message}`)
-    }
-}
-
 export const signUpWithCredential = async (data) => {
        
     await connectToDatabase()
@@ -83,77 +59,17 @@ export const verifyWitnCredentials = async (token) => {
     }
 }
 
-export const ChangePasswordWitnCredentials = async (oldPass, newPass) => {
-     
-    await connectToDatabase()
 
-    try { 
-        const session = await getServerSession(authOptions)
-    
-        if (!session) throw new Error('"unhauthaurized')
-    
-        if (session?.user?.provider !== 'credentials') {
-           throw new Error(`this account is signed with ${session?.user?.provider} you can t use  this function`)
-        }
-    
-        const user = await User.findById(session?.user?._id)
-    
-        if (!user) throw new Error('user does not exist')
-    
-        const compare = await bcrypt.compare(oldPass, user.password)
-        
-        if (!compare) throw new Error('old password does not match')
-        
-        const newPassword = await bcrypt.hash(newPass, 12)
-
-        await User.findOneAndUpdate(user._id, {password: newPassword}, {new: true})
-        
-        return {msg: "change password success"}
-    } catch (err) {
-        redirect(`/errors?error=${err.message}`)
-    }
-}
-
-export const forgotPasswordWitnCredentials = async (email) => {
+export const findUserByEmail = async (email) => {
     
     await connectToDatabase()
-
-    try { 
-       
-        const user = await User.findOne({email})
-        if (!user) throw new Error('email does not exist')
-      
     
-        if (user?.provider !== 'credentials') {
-           throw new Error(`this account is signed with ${session?.user?.provider} you can t use  this function`)
-        }
-    
-        const token = generateToken({ userId: user._id })
+    try {
+        const userExist = await User.findOne({ email: email })
+        console.log(userExist, 'tt')
+        if (userExist) return  true
         
-        await sendEmail({
-            to: email,
-            url: `${BASE_URL}/reset_password?token=${token}`,
-            text: "Reset pssword"
-        })
-        
-        return {msg: "change password success"}
-    } catch (err) {
-        redirect(`/errors?error=${err.message}`)
-    }
-}
-
-export const resetPasswordWitnCredentials = async (token, password) => {
-
-    await connectToDatabase()
-    
-    try { 
-        const { userId } = verifyToken(token)
-        
-        const newPass = await bcrypt.hash(password, 12)
-
-        await User.findByIdAndUpdate(userId, {password: newPass})
-        
-        return {msg: "change password success"}
+       else return false
     } catch (err) {
         redirect(`/errors?error=${err.message}`)
     }

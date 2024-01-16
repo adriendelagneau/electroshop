@@ -1,8 +1,9 @@
 "use client"
 import React, { useState } from 'react';
 
+
 // Define the RippleButton component
-function RippleButton({ text, buttonClasses, onClick, type, icon }) {
+function RippleButton({ text, buttonClasses, onClick, type, icon, isLoading }) {
   // State to manage ripples
   const [ripples, setRipples] = useState([]);
 
@@ -34,19 +35,27 @@ function RippleButton({ text, buttonClasses, onClick, type, icon }) {
   // Determine the button type (default is "button")
   const buttonType = type || 'button';
 
+
   // Render the RippleButton component
   return (
     <div className="relative">
       <button
         type={buttonType}
-        className={`relative overflow-hidden ${buttonClasses}`}
+        className={`relative overflow-hidden  h-12 text-skin-inverted ${buttonClasses}`}
         onClick={addRipple}
       >
         {/* Render the icon if it exists in the props */}
-        {icon && (
+        {icon && !isLoading &&(
           <div className="icon-container">{icon}</div>
         )}
-        {text}
+        {!isLoading ? text :
+          <div
+            class="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]"
+            role="status">
+            <span
+              class="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]"
+            >Loading...</span>
+          </div>}
         {ripples.map((ripple) => (
           <span
             key={ripple.id}

@@ -21,7 +21,7 @@ export default function RootLayout({ children }) {
             toastOptions={{
               unstyled: true,
               classNames: {
-                title: 'text-md',
+                title: 'text-lg',
               },
             }}
           />
