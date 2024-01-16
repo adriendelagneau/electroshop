@@ -7,7 +7,6 @@ export const useCartStore = create(
     (set, get) => ({
       cart: [],
 
-      /*
       addToCart: (item) => {
         const existingItem = get().cart.find((cartItem) => cartItem._id === item._id);
 
@@ -48,20 +47,19 @@ export const useCartStore = create(
 
       clearCart: () => set({ cart: [] }),
 
-      
-      getTotalPrice: () =>
-      get().cart.reduce((total, item) => total + item.price * item.quantity, 0),
-      
-      
-      setQuantity: (itemId, quantity) =>
-      set({
-        cart: get().cart.map((item) =>
-        item._id === itemId ? { ...item, quantity: quantity } : item
-        ),
-      }),
-      */
       getTotalQuantity: () =>
         get().cart.reduce((total, item) => total + item.quantity, 0),
+
+      getTotalPrice: () =>
+        get().cart.reduce((total, item) => total + item.price * item.quantity, 0),
+      
+      
+        setQuantity: (itemId, quantity) =>
+        set({
+          cart: get().cart.map((item) =>
+            item._id === itemId ? { ...item, quantity: quantity } : item
+          ),
+        }),
     }),
 
 
