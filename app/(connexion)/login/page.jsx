@@ -4,9 +4,9 @@ import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { signIn } from "next-auth/react";
 import Link from "next/link";
-import RippleButton from "@/components/button/RippleButton";
-import GoogleButton from "@/components/button/GoogleButton";
-import ForgotPassword from "@/components/ForgotPassword";
+import RippleButton from "@/components/buttons/RippleButton";
+import GoogleButton from "@/components/buttons/GoogleButton";
+//import ForgotPassword from "@/components/ForgotPassword";
 
 
 const Login = () => {
@@ -46,7 +46,7 @@ const Login = () => {
                 }
               })}
             />
-            <label htmlFor="email" className="absolute z-20 px-1 text-sm text-skin-gray transition-all bg-skin-inverted left-2 peer-placeholder-shown:top-3 peer-focus:-top-2 -top-2 peer-focus:text-skin-basepeer-placeholder-shown:-z-10 peer-focus:z-20 peer-placeholder-shown:text-base peer-focus:text-sm">Email</label>
+            <label htmlFor="email" className="absolute z-20 px-1 text-sm transition-all text-skin-gray bg-skin-inverted left-2 peer-placeholder-shown:top-3 peer-focus:-top-2 -top-2 peer-focus:text-skin-basepeer-placeholder-shown:-z-10 peer-focus:z-20 peer-placeholder-shown:text-base peer-focus:text-sm">Email</label>
             <p className='w-full h-5 pt-1 text-red-800'>{errors.email?.message}</p>
           </div>
 
@@ -69,7 +69,7 @@ const Login = () => {
                 }
               })}
             />
-            <label htmlFor="password" className="absolute z-20 px-1 text-sm text-skin-gray transition-all bg-skin-inverted left-2 peer-placeholder-shown:top-3 peer-focus:-top-2 -top-2 peer-focus:text-skin-basepeer-placeholder-shown:-z-10 peer-focus:z-20 peer-placeholder-shown:text-base peer-focus:text-sm">Password</label>
+            <label htmlFor="password" className="absolute z-20 px-1 text-sm transition-all text-skin-gray bg-skin-inverted left-2 peer-placeholder-shown:top-3 peer-focus:-top-2 -top-2 peer-focus:text-skin-basepeer-placeholder-shown:-z-10 peer-focus:z-20 peer-placeholder-shown:text-base peer-focus:text-sm">Password</label>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -98,12 +98,8 @@ const Login = () => {
       </div>
 
       <Link className="mt-6 hover:text-skin-basetext-md" href="/register">No account yet, REGISTER</Link>
-      <div onClick={() => setForgotPasswordVisible(!forgotPasswordVisible)}>forgot password ?</div>
-      {
-        forgotPasswordVisible && (
-          <ForgotPassword />
-        )
-      }
+      
+     
 
     </div>
   )
