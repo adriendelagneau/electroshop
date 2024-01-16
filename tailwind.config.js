@@ -7,12 +7,30 @@ module.exports = {
   ],
   theme: {
     extend: {
-      backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic':
-          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+      fontFamily: {
+        Lemon: ['Lemon']
       },
+      textColor: {
+        skin: {
+          base: '#1c1917',
+          inverted: '#fafaf9',
+          red: '#991b1b',
+          gray: '#4b5563'
+        }
+      },
+      backgroundColor: {
+        skin: {
+          fill: '#1c1917',
+          inverted: '#fafaf9'
+        }
+      },
+      borderColor: {
+        skin: {
+          base: '#1c1917',
+        }
+      }
     },
+    variants: {}
   },
   plugins: [],
 }
