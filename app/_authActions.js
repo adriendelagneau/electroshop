@@ -9,7 +9,7 @@ import { generateToken, verifyToken } from '@/utils/token'
 import sendEmail from "@/utils/sendEmail"
 import { connectToDatabase } from "@/lib/db"
 
-const BASE_URL= process.env.NEXTAUTH_URL
+const BASE_URL= process.env.NEXT_PUBLIC_NEXTAUTH_URL
 
 
 
