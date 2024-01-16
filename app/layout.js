@@ -1,9 +1,8 @@
 import { Inter } from 'next/font/google'
 import AuthProvider from '@/components/providers/AuthProvider'
 import SmoothScrolling from '@/components/providers/LennisProvider'
-//import { ToastContainer } from 'react-toastify'
+import { Toaster } from 'sonner';
 import './globals.css'
-//import 'react-toastify/dist/ReactToastify.css';
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -17,7 +16,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={inter.className}>
         <AuthProvider>
-       
+        <Toaster />
           <div className='text-skin-base'>
             <SmoothScrolling>
               {children}
