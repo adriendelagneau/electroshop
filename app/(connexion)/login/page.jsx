@@ -12,7 +12,7 @@ import GoogleButton from "@/components/buttons/GoogleButton";
 const Login = () => {
 
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
-  const [forgotPasswordVisible, setForgotPasswordVisible] = useState(false)
+ // const [forgotPasswordVisible, setForgotPasswordVisible] = useState(false)
   const { register, handleSubmit, formState: { errors } } = useForm();
 
   const submit = async (data) => {
@@ -30,7 +30,7 @@ const Login = () => {
           <div className="relative mt-6">
             <input
               type="email"
-              className="relative z-10 w-full p-2 bg-transparent border-2 rounded-lg outline-none peer focus:border-stone-900 placeholder:text-transparent"
+              className="relative z-10 w-full p-2 bg-transparent border-2 rounded-lg outline-none peer focus:border-stone-900 placeholder:text-transparent autofill:shadow-[inset_0_0_0px_1000px_rgb(255,255,255)]"
               id="email"
               placeholder="email"
               name='email'
@@ -53,7 +53,7 @@ const Login = () => {
           <div className="relative mt-6">
             <input
               type={isPasswordVisible ? 'text' : 'password'}
-              className="relative z-10 w-full p-2 pr-8 bg-transparent border-2 rounded-lg outline-none peer focus:border-stone-900 placeholder:text-transparent"
+              className="relative z-10 w-full p-2 pr-8 bg-transparent border-2 rounded-lg outline-none peer focus:border-stone-900 placeholder:text-transparent autofill:shadow-[inset_0_0_0px_1000px_rgb(255,255,255)]"
               id="password"
               placeholder="password"
               name='password'
