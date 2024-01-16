@@ -16,7 +16,15 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={inter.className}>
         <AuthProvider>
-        <Toaster />
+          <Toaster
+            richColors
+            toastOptions={{
+              unstyled: true,
+              classNames: {
+                title: 'text-md',
+              },
+            }}
+          />
           <div className='text-skin-base'>
             <SmoothScrolling>
               {children}

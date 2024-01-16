@@ -52,7 +52,7 @@ export const signUpWithCredential = async (data) => {
             
             await sendEmail({
                 to: data.email,
-                url: `${BASE_URL}/verify?token=${token}`,
+                url: `${BASE_URL}/verify_email?token=${token}`,
                 text: 'VERIFY EMAIL'
             })
         }

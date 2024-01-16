@@ -6,6 +6,7 @@ import Link from "next/link";
 import React, { useState } from "react";
 import RippleButton from "@/components/buttons/RippleButton";
 import { signUpWithCredential } from "@/app/_authActions";
+import { toast } from "sonner";
 
 const Register = () => {
   const {
@@ -22,7 +23,7 @@ const Register = () => {
 
     const res = await signUpWithCredential({ name, email, password })
 
-    if (res?.msg) alert(res?.msg)
+    if (res?.msg) toast.success(`Email verification send to ${email}`)
   };
 
 

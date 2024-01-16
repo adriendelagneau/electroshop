@@ -59,7 +59,7 @@ const Header = () => {
                         )}
                     </li>
                     <li>
-                      <p>cart icon</p>
+                        <CartIcon />
                     </li>
                 </ul>
             </nav>
