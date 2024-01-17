@@ -2,17 +2,17 @@
 import { getProductById } from '@/app/_productsActions'
 import ImageComponent from '@/components/ImageComponent'
 import AddToCartButton from '@/components/buttons/AddToCartButton'
+import addBlurDataUrl from '@/lib/getBase64'
 
 
 
 const ProductPage = async ({ params: { id } }) => {
 
-
   const product = await getProductById(id)
 
   return (
-    <div className='mx-auto max-w-screen-2xl'>
-      <div className='w-full min-h-[calc(100vh-60px)] flex flex-col justify-center items-center lg:flex-row'>
+  
+      <div className='w-full min-h-[100vh] flex flex-col justify-center items-center lg:flex-row'>
         <div className='  w-[350px] p-3 md:w-[500px] lg:flex-1'>
           <ImageComponent images={product.image} />
         </div>
@@ -23,7 +23,6 @@ const ProductPage = async ({ params: { id } }) => {
       
             <p className='text-xl text-gray-500 '>{product.brand}</p>
           <p className='text-xl '>{product.description}</p>
-            
 
           </div>
           <div className=''>
@@ -34,12 +33,8 @@ const ProductPage = async ({ params: { id } }) => {
             </div>
             <AddToCartButton product={product} />
           </div>
-
-
-
         </div>
       </div>
-    </div>
   )
 }
 

@@ -8,8 +8,15 @@ const ProductCard = ({ productData }) => {
    
     <div className="duration-500 bg-white border shadow-md w-72 rounded-xl hover:scale-105 hover:shadow-xl">
     <Link href={`/product/${productData._id}`}>
-        <Image width={768} height={500} src={productData.image[0]}
-          alt="Product" className="object-cover rounded-t-xl" />
+        <Image
+          width={768}
+          height={500}
+          src={productData.image[0]}
+          alt="Product" className="object-cover rounded-t-xl"
+          //placeholder='blur'
+          
+        
+        />
         <div className="px-4 py-3 w-72">
           <span className="mr-3 text-xs text-gray-400 uppercase">{productData.brand}</span>
           <p className="block text-lg font-bold text-black capitalize truncate">{productData.name}</p>

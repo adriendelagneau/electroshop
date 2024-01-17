@@ -20,7 +20,7 @@ const CartPage = () => {
 
 
     return (
-        <div className='min-h-[calc(100vh-60px)]  mt-12 p-4'>
+        <div className='h-screen pt-12 '>
             <div className='relative flex flex-col w-full xl:flex-row'>
 
                 <div className='grow'>

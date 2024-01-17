@@ -45,8 +45,10 @@ const SelectorComponent = ({ categoryText, brandText, sortText }) => {
   const selectOptions = {
     category: [
       { label: 'Category ', value: '' },
-      { label: 'Shoes', value: 'shoes' },
-      { label: 'Top', value: 'top' },
+      { label: 'headphones', value: 'headphones' },
+      { label: 'earbubds', value: 'earbuds' },
+      { label: 'speakers', value: 'speakers' },
+      { label: 'watches', value: 'watches' },
     ],
   
     sort: [
@@ -58,7 +60,7 @@ const SelectorComponent = ({ categoryText, brandText, sortText }) => {
 
   return (
     <div>
-      <div  className='flex justify-between max-w-5xl p-3 m-auto mt-5'>
+      <div  className='flex justify-between max-w-5xl p-3 m-auto mt-5 mb-32'>
         <Select
           label=""
           options={selectOptions.category}
