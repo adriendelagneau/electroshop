@@ -14,3 +14,47 @@
       opacity: 0;
     }
   }
+
+
+
+    /* acordion */
+  
+  
+    .img{
+
+      border:1px solid #222;
+      margin: 0 2px;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+    }
+    
+    @media only screen and (min-width: 1280px) {
+      /* Your styles for 1024 pixels and wider go here */
+      .img {
+        height: 100%;
+        border:1px solid #222;
+        margin: 0 2px;
+        background-position: center;
+  
+      }
+      .img:hover{
+        flex: 5;
+      }
+      
+      /* Add more styles as needed */
+    }
+    
+    .img1{ background-image: url("https://res.cloudinary.com/dos8mey8r/image/upload/v1704735940/shoes/alphacolor-XdDyRTVo-iw-unsplash_zgn4nd.jpg"); }
+    .img2{ background-image: url("https://res.cloudinary.com/dos8mey8r/image/upload/v1704732959/shoes/daniel-romero-6V5vTuoeCZg-unsplash_f6d3mr.jpg"); }  
+    .img3{ background-image: url("https://res.cloudinary.com/dos8mey8r/image/upload/v1704736216/shoes/eliott-van-buggenhout-ALf_DGUsgro-unsplash_igssqo.jpg"); }
+    .img4{ background-image: url("https://res.cloudinary.com/dos8mey8r/image/upload/v1704735641/shoes/smart-watch-6482245_1280_ujjksl.jpg"); }
+    .img{
+   
+      border:1px solid #222;
+  
+      background-size: cover;
+      
+      position: relative;
+    }
+  
