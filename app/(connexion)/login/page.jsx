@@ -30,7 +30,7 @@ const Login = () => {
           <div className="relative mt-6">
             <input
               type="email"
-              className="relative z-10 w-full p-2 bg-transparent border-2 rounded-lg outline-none peer focus:border-stone-900 placeholder:text-transparent autofill:shadow-[inset_0_0_0px_1000px_rgb(255,255,255)]"
+              className="relative z-10 w-full p-2 bg-transparent border-2 rounded-lg outline-none peer focus:border-skin-base placeholder:text-transparent autofill:shadow-[inset_0_0_0px_1000px_rgb(255,255,255)]"
               id="email"
               placeholder="email"
               name='email'
@@ -53,7 +53,7 @@ const Login = () => {
           <div className="relative mt-6">
             <input
               type={isPasswordVisible ? 'text' : 'password'}
-              className="relative z-10 w-full p-2 pr-8 bg-transparent border-2 rounded-lg outline-none peer focus:border-stone-900 placeholder:text-transparent autofill:shadow-[inset_0_0_0px_1000px_rgb(255,255,255)]"
+              className="relative z-10 w-full p-2 pr-8 bg-transparent border-2 rounded-lg outline-none peer focus:border-skin-base placeholder:text-transparent autofill:shadow-[inset_0_0_0px_1000px_rgb(255,255,255)]"
               id="password"
               placeholder="password"
               name='password'
@@ -99,8 +99,6 @@ const Login = () => {
 
       <Link className="mt-6 hover:text-skin-basetext-md" href="/register">No account yet, REGISTER</Link>
       
-     
-
     </div>
   )
 }
