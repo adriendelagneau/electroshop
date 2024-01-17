@@ -2,7 +2,7 @@
 import { getProductById } from '@/app/_productsActions'
 import ImageComponent from '@/components/ImageComponent'
 import AddToCartButton from '@/components/buttons/AddToCartButton'
-import addBlurDataUrl from '@/lib/getBase64'
+
 
 
 
