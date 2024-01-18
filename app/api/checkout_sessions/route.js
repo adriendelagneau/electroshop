@@ -17,7 +17,7 @@ export const POST = async (req) => {
                 currency: "eur",
                 product_data: {
                     name: item.name,
-                    images: item.image[0]
+                    images: [item.image[0]]
                 },
                 unit_amount: item.price *100,
             },
