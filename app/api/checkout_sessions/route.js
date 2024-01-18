@@ -44,11 +44,14 @@ export const POST = async (req) => {
             mode: "payment",
             success_url: `${process.env.NEXT_PUBLIC_NEXTAUTH_URL}/success`,
             cancel_url: `${process.env.NEXT_PUBLIC_NEXTAUTH_URL}/paiementError`,
-            metadata: { orderId: order._id.toString() },
+            customer_email: userEmail, 
             shipping_address_collection: {
                 allowed_countries: ["FR"]
             },
-            customer_email: userEmail, // Include the user's email in the checkout session
+            metadata: {
+                orderId: order._id.toString(),
+                userId: userId
+            },
         });
 
 

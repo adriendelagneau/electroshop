@@ -1,11 +1,12 @@
 import Order from "@/lib/models/Order";
+import sendEmail from "@/utils/sendEmail";
 import { NextResponse } from "next/server";
 
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY)
 const endpointSecret = process.env.STRIPE_WEBHOOK_SECRET
 
 const fullfillOrder = async (session) => {
-  
+  console.log(session)
     try {
         await Order.findByIdAndUpdate(session.metadata.orderId, {
             stripeId: session.id,
@@ -16,6 +17,19 @@ const fullfillOrder = async (session) => {
         return new NextResponse(null, { status: 200 });
     } catch (err) {
         return new NextResponse(`Webhook error for payment ${session.id}: ${err}`, { status: 400 });
+    }
+}
+
+const successfullOrderEmail = async () => {
+    try {
+
+        await sendEmail({
+            to: "",
+            url: ``, // session.metadata.userId
+            text: 'your order have been successfully paid'
+        })
+    } catch (err) {
+        
     }
 }
 
