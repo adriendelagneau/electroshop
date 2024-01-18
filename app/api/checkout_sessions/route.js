@@ -7,7 +7,7 @@ import Order from "@/lib/models/Order";
 
 export const POST = async (req) => {
     const headersList = headers();
-    const {cart, userId} = await req.json();
+    const {cart, userId, userEmail} = await req.json();
     
     
     const lineItems = cart.map((item) => {
@@ -17,7 +17,7 @@ export const POST = async (req) => {
                 currency: "eur",
                 product_data: {
                     name: item.name,
-                    images: [item.image[0]]
+                    images: item.image[0]
                 },
                 unit_amount: item.price *100,
             },
@@ -29,25 +29,26 @@ export const POST = async (req) => {
     try {
 
         const order = await Order.create({
-            stripeId: "2",
+            stripeId: "0",
             userId,
             cart,
             billingAddress: [""],
             totalAmount: 12,
             payementStatus: false,
         })
-        console.log(order)
+       
    
         const session = await stripe.checkout.sessions.create({
             payment_method_types: ["card"],
             line_items: lineItems,
             mode: "payment",
-            success_url: `${headersList.get("origin")}/`,
-            cancel_url: `${headersList.get("origin")}/`,
+            success_url: `${process.env.NEXT_PUBLIC_NEXTAUTH_URL}/success`,
+            cancel_url: `${process.env.NEXT_PUBLIC_NEXTAUTH_URL}/paiementError`,
             metadata: { orderId: order._id.toString() },
             shipping_address_collection: {
                 allowed_countries: ["FR"]
             },
+            customer_email: userEmail, // Include the user's email in the checkout session
         });
 
 

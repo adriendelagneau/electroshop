@@ -1,3 +1,4 @@
 todo:
     - img placeholder
-    - check user exist to checkoutsession
+    - redirect
+    - protect

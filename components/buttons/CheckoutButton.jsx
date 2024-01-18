@@ -3,11 +3,21 @@
 import { useCartStore } from "@/store/cart";
 import { loadStripe } from "@stripe/stripe-js";
 import { useSession } from "next-auth/react"
+import { toast } from "sonner";
 
 export default function CheckoutButton() {
     
     const cart = useCartStore((state) => state.cart)
     const { data: session, status } = useSession()
+
+    const hnaddleCheckOut = () => {
+        if (!session?.user) {
+            toast.info("login to checkout")
+        } else {
+            redirectToCheckout()
+        }
+        
+    }
 
 
     const redirectToCheckout = async () => {
@@ -23,7 +33,8 @@ export default function CheckoutButton() {
                 },
                 body: JSON.stringify({
                     cart,
-                    userId: session?.user?._id, // Add the user session ID to the request body
+                    userId: session?.user?._id, // Add the user session ID to the request body,
+                    userEmail: session.user.email
                 }),
             });
 
@@ -41,7 +52,7 @@ export default function CheckoutButton() {
 
     return (
         <button
-            onClick={() => cart.length > 0 && redirectToCheckout()}
+            onClick={() => cart.length > 0 && hnaddleCheckOut()}
             disabled={cart.length === 0}
             className="w-full px-6 py-3 mr-2 text-base font-medium text-white border border-transparent rounded-md shadow-sm bg-stone-900 hover:bg-stone-800 disabled:bg-gray-600">
             Checkout
