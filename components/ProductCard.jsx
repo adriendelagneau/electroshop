@@ -6,17 +6,18 @@ const ProductCard = ({ productData }) => {
 
   return (
    
-    <div className="duration-500 bg-white border shadow-md w-72 rounded-xl hover:scale-105 hover:shadow-xl">
-    <Link href={`/product/${productData._id}`}>
+    <div className="duration-500 bg-white border shadow-md w-72 rounded-xl hover:scale-105 hover:shadow-xl h-[416px] ">
+      <Link href={`/product/${productData._id}`} >
+        <div className='w-[286px] h-[286px]'>
+          
         <Image
           width={768}
           height={500}
           src={productData.image[0]}
-          alt="Product" className="object-cover rounded-t-xl"
-          //placeholder='blur'
-          
-        
-        />
+          alt="Product"
+          className="object-cover rounded-t-xl"
+          />
+          </div>
         <div className="px-4 py-3 w-72">
           <span className="mr-3 text-xs text-gray-400 uppercase">{productData.brand}</span>
           <p className="block text-lg font-bold text-black capitalize truncate">{productData.name}</p>

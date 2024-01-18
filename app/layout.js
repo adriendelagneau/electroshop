@@ -19,7 +19,7 @@ export default function RootLayout({ children }) {
           <Toaster
             richColors
             toastOptions={{
-              unstyled: true,
+          
               classNames: {
                 title: 'text-lg',
               },

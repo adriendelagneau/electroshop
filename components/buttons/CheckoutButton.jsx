@@ -28,7 +28,7 @@ export default function CheckoutButton() {
             });
 
             const { sessionId } = await checkoutResponse.json();
-            
+
             const stripeError = await stripe.redirectToCheckout({sessionId});
 
             if (stripeError) {

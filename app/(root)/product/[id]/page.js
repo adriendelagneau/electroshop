@@ -12,7 +12,7 @@ const ProductPage = async ({ params: { id } }) => {
 
   return (
   
-      <div className='w-full min-h-[100vh] flex flex-col justify-center items-center lg:flex-row'>
+      <div className='w-full min-h-[100vh] flex flex-col justify-center items-center lg:flex-row mt-24 mb-12'>
         <div className='  w-[350px] p-3 md:w-[500px] lg:flex-1'>
           <ImageComponent images={product.image} />
         </div>

@@ -1,2 +1,3 @@
-id client 1011952215205-eij962tk21245ec9oghi3epdl15kndb4.apps.googleusercontent.com
-pwds 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
+todo:
+    - img placeholder
+    - check user exist to checkoutsession

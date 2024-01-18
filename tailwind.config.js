@@ -28,7 +28,8 @@ module.exports = {
         skin: {
           base: '#1c1917',
         }
-      }
+      },
+     
     },
     variants: {}
   },
