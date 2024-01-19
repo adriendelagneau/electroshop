@@ -50,7 +50,7 @@ const Header = () => {
                     <li>
                         {session?.user ? (
                             session?.user.role === "admin" ? (
-                                <Link href={"/admin"}>dashboard</Link>
+                                <Link href={"/dashboard"}>dashboard</Link>
                             ) : (
                                 <Link href={"/profile"}>profile</Link>
                             )
@@ -59,7 +59,8 @@ const Header = () => {
                         )}
                     </li>
                     <li>
-                        <CartIcon />
+                        {session?.user.role !== "admin" && (<CartIcon />)
+                        }
                     </li>
                 </ul>
             </nav>

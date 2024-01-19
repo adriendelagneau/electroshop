@@ -1,4 +1,0 @@
-todo:
-    - img placeholder
-    - redirect
-    - protect

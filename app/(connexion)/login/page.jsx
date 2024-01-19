@@ -6,13 +6,13 @@ import { signIn } from "next-auth/react";
 import Link from "next/link";
 import RippleButton from "@/components/buttons/RippleButton";
 import GoogleButton from "@/components/buttons/GoogleButton";
-//import ForgotPassword from "@/components/ForgotPassword";
+
 
 
 const Login = () => {
 
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
- // const [forgotPasswordVisible, setForgotPasswordVisible] = useState(false)
+
   const { register, handleSubmit, formState: { errors } } = useForm();
 
   const submit = async (data) => {
@@ -87,6 +87,9 @@ const Login = () => {
             </svg>
             <p className="w-full h-5 pt-1 text-red-800 ">{errors.password?.message}</p>
           </div>
+          <p className="mt-4">
+          <Link href={'/forgotPassword'} className="">forgot password ?</Link>
+          </p>
 
           <RippleButton type={"submit"} text={"Login"} buttonClasses={"w-full mt-10 text-xl rounded-md bg-stone-900 "} />
        

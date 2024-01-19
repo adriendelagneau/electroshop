@@ -74,3 +74,50 @@ export const findUserByEmail = async (email) => {
         redirect(`/errors?error=${err.message}`)
     }
 }
+
+export const forgotPasswordWitnCredentials = async (email) => {
+    
+    await connectToDatabase()
+
+    try { 
+       
+        const user = await User.findOne({email})
+        if (!user) throw new Error('email does not exist')
+      
+    
+        if (user?.provider !== 'credentials') {
+           throw new Error(`this account is signed with ${session?.user?.provider} you can t use  this function`)
+        }
+    
+        const token = generateToken({ userId: user._id })
+        
+        await sendEmail({
+            to: email,
+            url: `${BASE_URL}/reset_password?token=${token}`,
+            text: "Reset pssword"
+        })
+        
+        return {msg: "change password success"}
+    } catch (err) {
+        redirect(`/errors?error=${err.message}`)
+    }
+}
+
+
+
+export const resetPasswordWitnCredentials = async (token, password) => {
+
+    await connectToDatabase()
+    
+    try { 
+        const { userId } = verifyToken(token)
+        
+        const newPass = await bcrypt.hash(password, 12)
+
+        await User.findByIdAndUpdate(userId, {password: newPass})
+        
+        return {msg: "change password success"}
+    } catch (err) {
+        redirect(`/errors?error=${err.message}`)
+    }
+}
