@@ -3,6 +3,7 @@ import {headers} from "next/headers";
 
 import stripe from "@/lib/stripe"; 
 import Order from "@/lib/models/Order";
+import User from "@/lib/models/User";
 
 
 export const POST = async (req) => {
@@ -36,6 +37,13 @@ export const POST = async (req) => {
             totalAmount: 12,
             payementStatus: false,
         })
+
+          // Push order._id to user.orderHistory
+    const user = await User.findByIdAndUpdate(
+        userId,
+        { $push: { orderHistory: order._id } },
+        { new: true } // Return the updated user document
+      );
        
    
         const session = await stripe.checkout.sessions.create({
