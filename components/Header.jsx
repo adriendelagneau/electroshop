@@ -52,7 +52,7 @@ const Header = () => {
                             session?.user.role === "admin" ? (
                                 <Link href={"/dashboard"}>dashboard</Link>
                             ) : (
-                                <Link href={"/profile"}>profile</Link>
+                                <Link href={`/profile/${session?.user?._id}`}>profile</Link>
                             )
                         ) : (
                             <Link href={"/register"}>login</Link>
