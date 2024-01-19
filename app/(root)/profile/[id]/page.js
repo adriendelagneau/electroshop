@@ -1,7 +1,8 @@
 import SignOutButton from '@/components/buttons/SignOutButton'
 import React from 'react'
 
-const page = () => {
+const ProfilePage = async ({ params: { id } }) => {
+
   return (
       <div>
           <SignOutButton />
@@ -9,4 +10,4 @@ const page = () => {
   )
 }
 
-export default page
+export default ProfilePage
