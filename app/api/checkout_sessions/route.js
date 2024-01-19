@@ -38,12 +38,16 @@ export const POST = async (req) => {
             payementStatus: false,
         })
 
+        console.log('order created')
+
           // Push order._id to user.orderHistory
     const user = await User.findByIdAndUpdate(
         userId,
         { $push: { orderHistory: order._id } },
         { new: true } // Return the updated user document
-      );
+    );
+        
+        console.log("user order histary update")
        
    
         const session = await stripe.checkout.sessions.create({
