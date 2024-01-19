@@ -14,6 +14,7 @@ export default withAuth(
         if (
             id && id !== req.nextauth.token.user._id &&
             req.nextUrl.pathname.startsWith("/profile/")
+            // admin may have access to user page ???
         ) {
             console.log("Unauthorized access to profile page");
             return NextResponse.redirect(new URL("/denied", req.url));

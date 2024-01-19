@@ -121,3 +121,15 @@ export const resetPasswordWitnCredentials = async (token, password) => {
         redirect(`/errors?error=${err.message}`)
     }
 }
+
+export const getUserWithOrderHistory = async (userId) => {
+    try {
+      // Find the user by ID and populate the 'orderHistory' array with order details
+      const user = await User.findById(userId).populate('orderHistory');
+  
+      return user;
+    } catch (err) {
+      console.log('Error getting user with order history:', err);
+      redirect(`/errors?error=${err.message}`)
+    }
+  };
