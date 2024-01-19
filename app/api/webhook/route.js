@@ -12,7 +12,7 @@ const fullfillOrder = async (session) => {
             stripeId: session.id,
             billingAddress: session.shipping,
             totalAmount: session.amount_subtotal/100,
-            payementStatus: true,
+            payementStatus: "paid",
         })
         return new NextResponse(null, { status: 200 });
     } catch (err) {
