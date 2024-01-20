@@ -28,6 +28,7 @@ export const POST = async (req) => {
 
 
     try {
+        /*
 
         const order = await Order.create({
             stripeId: "0",
@@ -38,9 +39,8 @@ export const POST = async (req) => {
             payementStatus: false,
         })
 
-        console.log('order created')
 
-        /*
+
           // Push order._id to user.orderHistory
     const user = await User.findByIdAndUpdate(
         userId,
@@ -48,15 +48,15 @@ export const POST = async (req) => {
         { new: true } // Return the updated user document
     );
         
-        console.log("user order histary update")
-       */
+    */
+      console.log(lineItems, "lineitems")
    
         const session = await stripe.checkout.sessions.create({
             payment_method_types: ["card"],
             line_items: lineItems,
             mode: "payment",
             success_url: `${process.env.NEXT_PUBLIC_NEXTAUTH_URL}/success`,
-            cancel_url: `${process.env.NEXT_PUBLIC_NEXTAUTH_URL}/paiementError`,
+            cancel_url: `${process.env.NEXT_PUBLIC_NEXTAUTH_URL}/`,
             customer_email: userEmail, 
             shipping_address_collection: {
                 allowed_countries: ["FR"]
@@ -67,6 +67,7 @@ export const POST = async (req) => {
             },
         });
 
+        console.log(session, "session")
 
         return NextResponse.json({sessionId: session.id});
     } catch (err) {

@@ -34,7 +34,7 @@ export default function CheckoutButton() {
                 body: JSON.stringify({
                     cart,
                     userId: session?.user?._id, // Add the user session ID to the request body,
-                  //  userEmail: session?.user?.email
+                    userEmail: session?.user?.email
                 }),
             });
 
