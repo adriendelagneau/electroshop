@@ -40,6 +40,7 @@ export const POST = async (req) => {
 
         console.log('order created')
 
+        /*
           // Push order._id to user.orderHistory
     const user = await User.findByIdAndUpdate(
         userId,
@@ -48,7 +49,7 @@ export const POST = async (req) => {
     );
         
         console.log("user order histary update")
-       
+       */
    
         const session = await stripe.checkout.sessions.create({
             payment_method_types: ["card"],
