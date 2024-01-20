@@ -19,7 +19,7 @@ const fullfillOrder = async (session) => {
         return new NextResponse(`Webhook error for payment ${session.id}: ${err}`, { status: 400 });
     }
 }
-
+/*
 const successfullOrderEmail = async () => {
     try {
 
@@ -32,7 +32,7 @@ const successfullOrderEmail = async () => {
         
     }
 }
-
+*/
 export const POST = async (req) => {
     const payload = await req.text()
     const sig2 = req.headers.get('stripe-signature')

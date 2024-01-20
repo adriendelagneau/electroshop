@@ -109,6 +109,7 @@ export const resetPasswordWitnCredentials = async (token, password) => {
 
     await connectToDatabase()
     
+    console.log(token, "zz")
     try { 
         const { userId } = verifyToken(token)
         
@@ -121,7 +122,7 @@ export const resetPasswordWitnCredentials = async (token, password) => {
         redirect(`/errors?error=${err.message}`)
     }
 }
-
+/*
 export const getUserWithOrderHistory = async (userId) => {
     try {
       // Find the user by ID and populate the 'orderHistory' array with order details
@@ -133,3 +134,40 @@ export const getUserWithOrderHistory = async (userId) => {
       redirect(`/errors?error=${err.message}`)
     }
   };
+
+  */
+
+export const changePassword = async ({oldPassword, newPassword}) => {
+    await connectToDatabase()
+      
+    const session = await getServerSession(authOptions)
+    if (!session) throw new Error('unauthorized')
+
+    if (session?.user?.provider !== "credentials") {
+        throw new Error(`errror: this account is signed with ${session?.user?.provider}, you can t use this function`)
+    }
+    try {
+        
+        const user = await User.findById(session.user._id)
+        if (!user) throw new Error('no user')
+
+        const compare = await bcrypt.compare(oldPassword, user.password)
+        if (!compare) throw new Error('password does not match')
+       
+        const salt = await bcrypt.genSalt(10)
+        const newPass = await bcrypt.hash(newPassword, salt)
+        
+        await User.findByIdAndUpdate(user._id, {
+            password: newPass
+        })
+
+        return {msg: "change password success"}
+        
+    } catch (err) {
+        redirect(`/errors?error=${err.message}`)
+    }
+}
+  
+/**
+ * verify user password before password change
+ */

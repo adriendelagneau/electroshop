@@ -10,7 +10,7 @@ const ProfilePage = async ({ params: { id } }) => {
  // console.log(user)
 
   return (
-    <div>
+    <div className='min-h-screen pt-24'>
 
 
       <ChangePassword />

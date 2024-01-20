@@ -80,7 +80,7 @@ const ForgotPassword = () => {
 
         {/* Submit button */}
         <RippleButton
-          text={isLoading ? "Loading..." : "Reset Password"}
+          text={"send email"}
           buttonClasses={"w-full mt-10 text-xl rounded-md bg-skin-fill text-skin-inverted p-2 "}
           type="submit"
           disabled={isLoading}

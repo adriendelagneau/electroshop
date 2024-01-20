@@ -1,8 +1,13 @@
 import React from 'react'
 
-const page = () => {
+import { resetPasswordWitnCredentials } from '@/app/_authActions'
+import ResetPassword from '@/components/ResetPassword'
+
+const page = ({ searchParams: { token } }) => {
   return (
-    <div>page</div>
+    <div>
+      <ResetPassword token={token} />
+    </div>
   )
 }
 
