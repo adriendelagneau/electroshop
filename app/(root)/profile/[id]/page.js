@@ -5,7 +5,7 @@ import React from 'react'
 
 const ProfilePage = async ({ params: { id } }) => {
 
-  const user = await getUserWithOrderHistory(id)
+  //const user = await getUserWithOrderHistory(id)
 
   console.log(user)
 
