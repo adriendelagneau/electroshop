@@ -28,7 +28,7 @@ export const POST = async (req) => {
 
 
     try {
-        /*
+        
 
         const order = await Order.create({
             stripeId: "0",
@@ -36,19 +36,19 @@ export const POST = async (req) => {
             cart,
             billingAddress: [""],
             totalAmount: 12,
-            payementStatus: false,
+            payementStatus: "waiting",
         })
 
 
-
+/*
           // Push order._id to user.orderHistory
     const user = await User.findByIdAndUpdate(
         userId,
         { $push: { orderHistory: order._id } },
         { new: true } // Return the updated user document
     );
-        
-    */
+  */      
+    
       console.log(lineItems, "lineitems")
    
         const session = await stripe.checkout.sessions.create({
