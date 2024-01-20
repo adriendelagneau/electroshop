@@ -7,7 +7,7 @@ const ProfilePage = async ({ params: { id } }) => {
 
   //const user = await getUserWithOrderHistory(id)
 
-  console.log(user)
+ // console.log(user)
 
   return (
     <div>
