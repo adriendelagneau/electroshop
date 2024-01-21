@@ -6,7 +6,7 @@ const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY)
 const endpointSecret = process.env.STRIPE_WEBHOOK_SECRET
 
 const fullfillOrder = async (session) => {
-  console.log(session)
+
     try {
         await Order.findByIdAndUpdate(session.metadata.orderId, {
             stripeId: session.id,
@@ -19,20 +19,21 @@ const fullfillOrder = async (session) => {
         return new NextResponse(`Webhook error for payment ${session.id}: ${err}`, { status: 400 });
     }
 }
-/*
-const successfullOrderEmail = async () => {
+
+const successfullOrderEmail = async (session) => {
+    console.log(session, "session1")
     try {
 
         await sendEmail({
-            to: "",
+            to: session.email,
             url: ``, // session.metadata.userId
-            text: 'your order have been successfully paid'
+            text: `your order ${session.metadata.orderId} have been successfully paid`
         })
     } catch (err) {
-        
+        console.log(err)
     }
 }
-*/
+
 export const POST = async (req) => {
     const payload = await req.text()
     const sig2 = req.headers.get('stripe-signature')
@@ -48,7 +49,7 @@ export const POST = async (req) => {
     if (event.type === 'checkout.session.completed') {
         const session = event.data.object;
 
-    
+      await  successfullOrderEmail(session)
         return fullfillOrder(session);
     }
 
