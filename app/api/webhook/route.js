@@ -25,7 +25,7 @@ const successfullOrderEmail = async (session) => {
     try {
 
         await sendEmail({
-            to: session.email,
+            to: session.customer_details.email,
             url: ``, // session.metadata.userId
             text: `your order ${session.metadata.orderId} have been successfully paid`
         })
