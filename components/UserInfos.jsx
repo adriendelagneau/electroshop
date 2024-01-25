@@ -7,7 +7,9 @@ const UserInfos = ({user}) => {
 
   return (
       <div>
-          <p>{user.name}</p>
+      <p>{user.orderHistory.map((o, i) => (
+        <div key={i}>{o.userId}</div>
+          ))}</p>
     </div>
   )
 }
