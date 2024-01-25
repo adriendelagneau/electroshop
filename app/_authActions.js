@@ -122,21 +122,29 @@ export const resetPasswordWitnCredentials = async (token, password) => {
         redirect(`/errors?error=${err.message}`)
     }
 }
-/*
+
 export const getUserWithOrderHistory = async (userId) => {
+    await connectToDatabase();
+  
     try {
       // Find the user by ID and populate the 'orderHistory' array with order details
-      const user = await User.findById(userId).populate('orderHistory');
+      const user = await User.findById(userId).populate('orderHistory').exec();
+  
+      if (!user) {
+        console.log('User not found');
+        // Handle the case when the user is not found
+        return null;
+      }
   
       return user;
     } catch (err) {
       console.log('Error getting user with order history:', err);
-      redirect(`/errors?error=${err.message}`)
+      // Handle other errors
+      redirect(`/errors?error=${err.message}`);
     }
   };
 
-  */
-
+  
 export const changePassword = async ({oldPassword, newPassword}) => {
     await connectToDatabase()
       

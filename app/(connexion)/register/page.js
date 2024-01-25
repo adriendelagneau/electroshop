@@ -3,9 +3,9 @@
 import { useForm } from "react-hook-form";
 import Link from "next/link";
 import React, { useState } from "react";
+import { toast } from "sonner";
 import RippleButton from "@/components/buttons/RippleButton";
 import { findUserByEmail, signUpWithCredential } from "@/app/_authActions";
-import { toast } from "sonner";
 
 const Register = () => {
   const {

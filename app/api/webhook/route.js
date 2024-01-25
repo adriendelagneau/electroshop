@@ -5,7 +5,7 @@ import { NextResponse } from "next/server";
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY)
 const endpointSecret = process.env.STRIPE_WEBHOOK_SECRET
 
-const fullfillOrder = async (session) => {
+const fulfillOrder = async (session) => {
 
     try {
         await Order.findByIdAndUpdate(session.metadata.orderId, {
@@ -30,7 +30,8 @@ const successfullOrderEmail = async (session) => {
             text: `your order ${session.metadata.orderId} have been successfully paid`
         })
     } catch (err) {
-        console.log(err)
+        console.error(`Error sending email for order ${session.metadata.orderId}: ${err}`);
+        return new NextResponse(`Internal Server Error`, { status: 500 });
     }
 }
 
@@ -50,16 +51,9 @@ export const POST = async (req) => {
         const session = event.data.object;
 
       await  successfullOrderEmail(session)
-        return fullfillOrder(session);
+        return fulfillOrder(session);
     }
 
     return new NextResponse("RESPONSE EXECUTE", { status: 200 });
 }
 
-/*
-export const config = {
-    api: {
-        bodyParser: false
-    }
-}
-*/
