@@ -1,6 +1,6 @@
 "use client"
 
-import { CloudHail } from 'lucide-react'
+import { format } from 'date-fns';
 import React from 'react'
 
 
@@ -8,7 +8,7 @@ import React from 'react'
 
 const UserHistory = ({userHistory}) => {
 
-  
+
   return (
     
     <div className="p-6 ">
@@ -30,7 +30,7 @@ const UserHistory = ({userHistory}) => {
 
             {userHistory.orderHistory.map((o, i) => (
              <tr key={i}>
-                <td className="px-4 py-2 border-b">{o.totalAmount}</td>
+                <td className="px-4 py-2 border-b">{format(new Date(o.createdAt), 'MMMM d, yyyy')}</td>
                 <td className="px-4 py-2 border-b">{o._id}</td>
                 <td className="px-4 py-2 border-b">{o.totalAmount} €</td>
                 <td className="px-4 py-2 border-b">{o.payementStatus}</td>
@@ -38,16 +38,7 @@ const UserHistory = ({userHistory}) => {
                 </tr>
             ))}
             
-            
-            {/* {userHistory?.orderHistory?.map((order, i) => (
-            <tr key={i}>
-              <td className="px-4 py-2 border-b">{order._id}</td>
-              <td className="px-4 py-2 border-b">details</td>
-            </tr>
-              
-            ))} */}
-
-         
+        
 
           </tbody>
         </table>
