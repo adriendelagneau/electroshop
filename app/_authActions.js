@@ -130,11 +130,7 @@ export const getUserWithOrderHistory = async (userId) => {
       // Find the user by ID and populate the 'orderHistory' array with order details
       const user = await User.findById(userId).populate('orderHistory').exec();
   
-      if (!user) {
-        console.log('User not found');
-        // Handle the case when the user is not found
-        return null;
-      }
+      if (!user)   if (!user) throw new Error('no user')
   
       return user;
     } catch (err) {

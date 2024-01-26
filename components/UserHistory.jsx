@@ -1,5 +1,6 @@
 "use client"
 
+import { CloudHail } from 'lucide-react'
 import React from 'react'
 
 
@@ -7,6 +8,7 @@ import React from 'react'
 
 const UserHistory = ({userHistory}) => {
 
+  console.log(userHistory, "hu")
 
   return (
 
@@ -27,7 +29,7 @@ const UserHistory = ({userHistory}) => {
           </thead>
           <tbody>
 
-            {userHistory?.orderHistory?.map((order, i) => (
+            {/* {userHistory?.orderHistory?.map((order, i) => (
             <tr key={i}>
               <td className="px-4 py-2 border-b">{order.createdAt}</td>
               <td className="px-4 py-2 border-b">{order._id}</td>
@@ -36,7 +38,7 @@ const UserHistory = ({userHistory}) => {
               <td className="px-4 py-2 border-b">details</td>
             </tr>
               
-            ))}
+            ))} */}
 
             <tr>
               <td className="px-4 py-2 border-b">2024-01-25</td>
