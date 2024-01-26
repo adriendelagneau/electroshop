@@ -7,7 +7,7 @@ import React from 'react'
 
 const UserHistory = ({userHistory}) => {
 
-console.log(userHistory)
+
   return (
 
     <div className="p-6 ">
@@ -27,14 +27,16 @@ console.log(userHistory)
           </thead>
           <tbody>
 
-            
-            <tr>
-              <td className="px-4 py-2 border-b">data.createdAt</td>
-              <td className="px-4 py-2 border-b">data.id</td>
-              <td className="px-4 py-2 border-b">data.totalAmount €</td>
-              <td className="px-4 py-2 border-b">data.status</td>
+            {UserHistory.orderHistory.map((order, i) => (
+            <tr key={i}>
+              <td className="px-4 py-2 border-b">{order.createdAt}</td>
+              <td className="px-4 py-2 border-b">{order._id}</td>
+              <td className="px-4 py-2 border-b">{order.totalAmount} €</td>
+              <td className="px-4 py-2 border-b">{order.status}</td>
               <td className="px-4 py-2 border-b">details</td>
             </tr>
+              
+            ))}
 
             <tr>
               <td className="px-4 py-2 border-b">2024-01-25</td>
