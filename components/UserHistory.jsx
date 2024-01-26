@@ -31,7 +31,10 @@ const UserHistory = ({userHistory}) => {
       console.log(userHistory.orderHistory, "hu")
 }
             {userHistory.orderHistory.map((o, i) => (
-              <div key={i}>{o.totalAmount}</div>
+             <tr key={i}>
+                <div>{o.totalAmount}</div>
+                
+                </tr>
             ))}
             
             
