@@ -27,7 +27,7 @@ const UserHistory = ({userHistory}) => {
           </thead>
           <tbody>
 
-            {userHistory.orderHistory.map((order, i) => (
+            {userHistory?.orderHistory?.map((order, i) => (
             <tr key={i}>
               <td className="px-4 py-2 border-b">{order.createdAt}</td>
               <td className="px-4 py-2 border-b">{order._id}</td>
