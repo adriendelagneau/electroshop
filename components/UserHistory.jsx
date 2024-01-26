@@ -27,12 +27,11 @@ const UserHistory = ({userHistory}) => {
             </tr>
           </thead>
           <tbody>
-            {
-      console.log(userHistory.orderHistory, "hu")
-}
+
             {userHistory.orderHistory.map((o, i) => (
              <tr key={i}>
                 <td className="px-4 py-2 border-b">{o.totalAmount}</td>
+                <td className="px-4 py-2 border-b">{o.status}</td>
                 
                 </tr>
             ))}
@@ -43,7 +42,6 @@ const UserHistory = ({userHistory}) => {
               <td className="px-4 py-2 border-b">{order.createdAt}</td>
               <td className="px-4 py-2 border-b">{order._id}</td>
               <td className="px-4 py-2 border-b">{order.totalAmount} €</td>
-              <td className="px-4 py-2 border-b">{order.status}</td>
               <td className="px-4 py-2 border-b">details</td>
             </tr>
               
