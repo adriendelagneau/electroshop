@@ -2,7 +2,8 @@
 
 import React from 'react'
 
-const UserInfos = ({user}) => {
+
+const UserInfos = () => {
 
 
   return (

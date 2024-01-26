@@ -8,13 +8,14 @@ const ProfilePage = async ({ params: { id } }) => {
 
   const user =  await getUserWithOrderHistory(id)
 
-  console.log(user, "zzz")
+
+  console.log(user)
   return (
     <div className='min-h-screen '>
 
     
-       <UserHistory user={user} /> 
       <ChangePassword />
+      <UserHistory userHistory={user.orderHistory} /> 
           <SignOutButton />
     </div>
   )
