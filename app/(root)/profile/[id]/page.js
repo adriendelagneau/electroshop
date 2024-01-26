@@ -15,7 +15,7 @@ const ProfilePage = async ({ params: { id } }) => {
 
     
       <ChangePassword />
-      <UserHistory userHistory={user.orderHistory} /> 
+      <UserHistory userHistory={user} /> 
           <SignOutButton />
     </div>
   )
