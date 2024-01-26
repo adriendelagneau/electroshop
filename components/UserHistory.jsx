@@ -29,8 +29,10 @@ const UserHistory = ({userHistory}) => {
           <tbody>
             {
       console.log(userHistory.orderHistory, "hu")
-              
 }
+            {userHistory.orderHistory.map((o, i) => (
+              <div key={i}>{o.totalAmount}</div>
+              ))}
             {/* {userHistory?.orderHistory?.map((order, i) => (
             <tr key={i}>
               <td className="px-4 py-2 border-b">{order.createdAt}</td>
