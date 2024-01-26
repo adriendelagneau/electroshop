@@ -28,7 +28,7 @@ const UserHistory = ({userHistory}) => {
           </thead>
           <tbody>
             {
-      console.log(userHistory, "hu")
+      console.log(userHistory.orderHistory, "hu")
               
 }
             {/* {userHistory?.orderHistory?.map((order, i) => (
