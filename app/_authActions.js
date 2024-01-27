@@ -8,6 +8,7 @@ import bcrypt from "bcryptjs";
 import { generateToken, verifyToken } from '@/utils/token' 
 import sendEmail from "@/utils/sendEmail"
 import { connectToDatabase } from "@/lib/db"
+import Newsletter from "@/lib/models/Newsletter"
 
 const BASE_URL= process.env.NEXT_PUBLIC_NEXTAUTH_URL
 
@@ -175,3 +176,24 @@ export const changePassword = async ({oldPassword, newPassword}) => {
 /**
  * verify user password before password change
  */
+
+
+export const registerForNewsletter = async (email) => {
+    await connectToDatabase();
+
+    try {
+        const user = await Newsletter.findOne({email: email})
+  
+        if (user) return { msg: "your already subscribe to our newsletter" }
+        
+        const newSubscriber = new Newsletter({email})
+
+        await newSubscriber.save()
+        return { msg: "your subscribe to our newsletter" }
+  
+    } catch (err) {
+      console.log('Error getting user with order history:', err);
+      // Handle other errors
+      redirect(`/errors?error=${err.message}`);
+    }
+  };

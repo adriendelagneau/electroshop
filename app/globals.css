@@ -6,6 +6,12 @@
     font-family: 'Lemon';
     src: url('../public/font/LemonMilk.otf');
   }
+
+  @layer base {
+    h2 {
+      @apply my-6 text-3xl capitalize lg:text-4xl;
+    }
+  }
   
   @keyframes ripple {
     to {

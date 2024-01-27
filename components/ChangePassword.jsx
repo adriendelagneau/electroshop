@@ -42,7 +42,7 @@ const ChangePassword = () => {
 
   return (
     <div className="pt-[300px] w-[300px] min-h-screen flex flex-col items-center mx-auto">
-      <h1 className="pb-8 text-3xl">Change Password</h1>
+      <h3 className="pb-8 text-2xl">Change Password</h3>
 
       {/* Form for old and new password input */}
       <form
