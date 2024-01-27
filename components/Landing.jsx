@@ -3,7 +3,7 @@ import React from 'react'
 
 const Landing = () => {
   return (
-    <div className='w-full h-[80vh] bg-gradient-to-r from-blue-700 via-blue-800 to-gray-900 rounded mt-12 flex  flex-col xl:flex-row'>
+    <div className='w-full h-[80vh] bg-gradient-to-r from-blue-700 via-blue-800 to-gray-900 rounded-lg mt-12 flex  flex-col xl:flex-row'>
       
 
 
@@ -15,6 +15,7 @@ const Landing = () => {
             alt="colored grafitti airmax"
             width={570}
             height={570}
+            priority={true}
             // sizes="(min-width: 620px) 570px, calc(90vw + 30px)"
            // className='m-auto'
            />

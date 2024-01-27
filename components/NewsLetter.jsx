@@ -21,7 +21,7 @@ const NewsLetter = () => {
 
   return (
     <div className='my-12'>
-      <h2>Newsletter</h2>
+
       <div className='w-full mt-12 rounded-lg bg-gradient-to-r from-blue-700 via-blue-800 to-gray-900 '>
         <div className="px-6 py-6 md:py-12 md:px-12 lg:py-16 lg:px-16 xl:flex xl:items-center">
           <div className="xl:w-0 xl:flex-1">

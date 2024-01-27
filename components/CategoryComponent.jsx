@@ -3,10 +3,7 @@ import Link from 'next/link'
 const CategoryComponent = () => {
 
     return (
-        <>
-        <h2 className='text-skin-base'>category</h2>
-
-        <div className="w-[80%]  mx-auto pb-10 flex flex-col  gap-10  xl:flex-row items-center xl:gap-0 xl:w-full">
+        <div className="w-[80%]  mx-auto py-10 flex flex-col  gap-10  xl:flex-row items-center xl:gap-0 xl:w-full">
             <Link href={`/products?category=headphones`} className='h-[175px]  xl:transition-all xl:duration-500 cursor-pointer img1 group img w-[300px] xl:flex-1 sm:w-[450px] sm:h-[262px] lg:w-[550px] lg:h-[330px] relative'>
                 <p className='absolute bottom-0 left-0 p-2 uppercase transition-all duration-300 origin-top-left transform text-md sm:text-xl xl:-rotate-90 bg-stone-950 text-sky-50 group-hover:rotate-0'>headphones</p>
             </Link>
@@ -20,8 +17,6 @@ const CategoryComponent = () => {
                 <p className='absolute bottom-0 left-0 p-2 uppercase transition-all duration-300 origin-top-left transform text-md sm:text-xl xl:-rotate-90 bg-stone-950 text-sky-50 group-hover:rotate-0'>watches</p>
             </Link>
         </div>
-        </>
-        
     );
 }
 
