@@ -1,3 +1,4 @@
+import Banner from '@/components/Banner'
 import CategoryComponent from '@/components/CategoryComponent'
 import Landing from '@/components/Landing'
 import NewsLetter from '@/components/NewsLetter'
@@ -11,6 +12,7 @@ export default function Home() {
       <Landing />
       <Slider products={"bestSales"} />
       <CategoryComponent />
+      <Banner />
       <Slider />
       <NewsLetter products={"newArrived"}/>
     </main>

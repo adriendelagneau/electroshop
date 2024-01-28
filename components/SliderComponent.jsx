@@ -54,11 +54,11 @@ const SliderComponent = ({ data }) => {
             <ProductCard productData={item} key={index} />
           ))}
         </div>
-        <button onClick={() => handleClick('prev')} className='absolute top-[40%] left-0 z-20 group-hover:inline-block hidden transition-all '>
-          <ChevronLeft />
+        <button onClick={() => handleClick('prev')} className='absolute top-[40%] left-0 z-20 group-hover:inline-block hidden transition-all bg-skin-fill p-3 w-12 h-12 rounded-full'>
+        <ChevronLeft color="#f6f5f4" />
         </button>
-        <button onClick={() => handleClick('next')} className='absolute top-[40%] right-0 z-20 group-hover:inline-block hidden transition-all'>
-          <ChevronRight />
+        <button onClick={() => handleClick('next')} className='absolute top-[40%] right-0 z-20 group-hover:inline-block hidden transition-all bg-skin-fill p-3 w-12 h-12 rounded-full'>
+          <ChevronRight color="#f6f5f4"/>
         </button>
       </div>
       <div>
