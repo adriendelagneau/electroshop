@@ -105,12 +105,12 @@ const Banner = () => {
         />
       </div>
 
-      <div className="flex flex-col items-center flex-1 gap-3 p-6 text-xl text-skin-inverted">
+      <div className="flex flex-col items-center flex-1 gap-3 p-6 text-xl text-skin-inverted lg:items-start">
         <p ref={titleRef}>Air Solo Bass</p>
         <p className="text-3xl font-bold xl:text-5xl" ref={winterRef}>
           Winter Sale
         </p>
-        <p className="text-base xl:text-lg" ref={textRef}>
+        <p className="text-base xl:text-lg max-w-[400px] lg:max-w-full" ref={textRef}>
           Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eaque
           reiciendis
         </p>

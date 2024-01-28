@@ -1,77 +1,33 @@
-useEffect(() => {
-  gsap.registerPlugin(ScrollTrigger);
-
-  let mm = gsap.matchMedia();
-
-  mm.add("(min-width: 1025px)", () => {
-    // Callback to execute when screen width is greater than 1024 pixels
-    let Tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: imageRef.current,
-        start: "top 80%",
-        toggleActions: "play none play reverse",
-      },
-    });
-
-    Tl.fromTo(
-      imageRef.current,
-      { opacity: 0, scale: 0.7 },
-      { opacity: 1, scale: 1, duration: 0.4, ease: "none" },
-      "init"
-    );
-
-    Tl.fromTo(
-      imageRef.current,
-      { opacity: 0, scale: 0.7 },
-      { opacity: 1, scale: 1, duration: 0.4, ease: "none" },
-      "init"
-    );
-
-    Tl.fromTo(
-      promoRef.current,
-      { opacity: 0 },
-      { opacity: 1, duration: 0.4, ease: "none" },
-      "init"
-    );
-    Tl.fromTo(
-      happyHoursRef.current,
-      { opacity: 0, translateX: "30px" },
-      { opacity: 1, translateX: 0, duration: 0.4, ease: "none" },
-      "init"
-    );
-    Tl.fromTo(
-      delayRef.current,
-      { opacity: 0 },
-      { opacity: 1, duration: 0.4, ease: "none" },
-      "init"
-    );
-
-    Tl.fromTo(
-      titleRef.current,
-      { opacity: 0 },
-      { opacity: 1, duration: 0.4, ease: "none" },
-      "init"
-    );
-    Tl.fromTo(
-      textRef.current,
-      { opacity: 0 },
-      { opacity: 1, duration: 0.4, ease: "none" },
-      "init"
-    );
-    Tl.fromTo(
-      winterRef.current,
-      { opacity: 0, translateX: "30px" },
-      { opacity: 1, translateX: 0, duration: 0.4, ease: "none" },
-      "init"
-    );
-    Tl.fromTo(
-      buttonRef.current,
-      { opacity: 0, translateX: "-30px" },
-      { opacity: 1, translateX: 0, duration: 0.4, ease: "none" },
-      "init"
-    )
-
-    // Play the timeline
-    Tl.play();
-  });
-}, []);
+<header className={`w-full  bg-skin-inverted transition-all fixed top-0 h-16 z-50 ${!visible && 'top-[-64px]'} left-[50%] translate-x-[-50%] mx-6`}>
+<nav className='flex items-center justify-between w-full h-full px-4 py-2'>
+    <div className='hidden w-1/4 sm:inline-flex'>
+        
+    <Link href={"/"} >
+        <Image src={"https://res.cloudinary.com/dos8mey8r/image/upload/v1705394086/electro/logo11_l1u82h.png"} width={50} height={50} alt='' />
+    </Link>
+    </div>
+    <div className='w-1/2 text-xl font-Lemon sm:text-center sm:text-3xl'>
+        
+    <Link href={"/"} >
+        Electro Store
+    </Link>
+    </div>
+    <ul className='flex items-center justify-end w-1/4 gap-4'>
+        <li>
+            {session?.user ? (
+                session?.user.role === "admin" ? (
+                    <Link href={"/dashboard"}>dashboard</Link>
+                ) : (
+                    <Link href={`/profile/${session?.user?._id}`}>profile</Link>
+                )
+            ) : (
+                <Link href={"/register"}>login</Link>
+            )}
+        </li>
+        <li>
+            {session?.user.role !== "admin" && (<CartIcon />)
+            }
+        </li>
+    </ul>
+</nav>
+</header>
