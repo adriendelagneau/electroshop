@@ -43,4 +43,24 @@
       }
     }
     
-  
+  /* slider */
+
+  /* Slider Container */
+.slider-container {
+  position: relative;
+  overflow: hidden;
+height: 500px;
+z-index: 10;
+
+
+}
+
+/* Slider */
+.slider {
+  position: absolute;
+  top: 0;
+  display: flex;
+  gap: 30px;
+  transition: transform 0.5s ease-in-out;
+
+}

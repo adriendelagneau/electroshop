@@ -1,6 +1,7 @@
 
 import { getProducts } from '@/app/_productsActions'
 import SliderComponent from './SliderComponent'
+import Slider2 from './Slider2'
 
 const Slider = async () => {
 
@@ -16,7 +17,7 @@ const Slider = async () => {
   
     return (
         <div className='w-full mx-auto'>
-       <SliderComponent data={data.products} />
+       <Slider2 data={data.products} />
         </div>
   )
 }
