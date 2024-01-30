@@ -21,10 +21,6 @@ const Banner = () => {
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
 
-
-    let mm = gsap.matchMedia();
-
-
     let Tl = gsap.timeline({
       scrollTrigger: {
         trigger: imageRef.current,
@@ -86,8 +82,8 @@ const Banner = () => {
   }, []);
 
   return (
-    <div className="w-full relative  rounded-xl bg-gradient-to-r from-green-600 via-green-700 to-green-800 lg:h-64 xl:h-[320px] lg:flex justify-between items-center my-48 max-w-[620px] lg:max-w-full mx-auto">
-      <div className="flex flex-col items-center justify-center flex-1 gap-2 pl-6 text-xl lg:text-2xl xl:gap-6 text-skin-inverted">
+    <div className="w-full relative  rounded-xl bg-gradient-to-r from-gray-300/80 to-gray-100 lg:h-64 xl:h-[320px] lg:flex justify-between items-center my-48 max-w-[620px] lg:max-w-full mx-auto">
+      <div className="flex flex-col items-center justify-center flex-1 gap-2 pl-6 text-xl lg:text-2xl xl:gap-6 text-skin-base">
         <p ref={promoRef}>30% off</p>
         <div className="text-5xl font-bold uppercase lg:text-6xl xl:text-7xl" ref={happyHoursRef}>
           <p>happy</p>
@@ -105,7 +101,7 @@ const Banner = () => {
         />
       </div>
 
-      <div className="flex flex-col items-center flex-1 gap-3 p-6 text-xl text-skin-inverted lg:items-start">
+      <div className="flex flex-col items-center flex-1 gap-3 p-6 text-xl text-skin-base lg:items-start">
         <p ref={titleRef}>Air Solo Bass</p>
         <p className="text-3xl font-bold xl:text-5xl" ref={winterRef}>
           Winter Sale

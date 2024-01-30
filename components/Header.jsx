@@ -5,6 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { useSession } from 'next-auth/react';
 import CartIcon from './CartIcon';
+import ThemeToggleButton from './buttons/ThemeToggleButto';
 
 const Header = () => {
     // Use the useSession hook from next-auth/react to get session information
@@ -35,7 +36,6 @@ const Header = () => {
         <header className={`w-full  bg-skin-inverted text-skin-base transition-all fixed top-0 h-16 z-50 ${!visible && 'top-[-64px]'} left-[50%] translate-x-[-50%] max-w-screen-2xl`}>
           <nav className='flex items-center justify-between w-full h-full px-4 py-2'>
     <div className='hidden w-1/4 sm:inline-flex'>
-        
     <Link href={"/"} >
         <Image src={"https://res.cloudinary.com/dos8mey8r/image/upload/v1705394086/electro/logo11_l1u82h.png"} width={50} height={50} alt='' />
     </Link>
@@ -47,6 +47,7 @@ const Header = () => {
     </Link>
     </div>
     <ul className='flex items-center justify-end w-1/4 gap-4'>
+        <ThemeToggleButton />
         <li>
             {session?.user ? (
                 session?.user.role === "admin" ? (

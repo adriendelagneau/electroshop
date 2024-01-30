@@ -1,9 +1,16 @@
+"use client"
+import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import Image from 'next/image'
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 
 const Landing = () => {
+  
+
+  
+
   return (
-    <div className='w-full h-[80vh] bg-gradient-to-r from-blue-700 via-blue-800 to-gray-900 rounded-lg mt-12 flex  flex-col xl:flex-row'>
+    <div className='w-full h-[80vh] bg-gradient-to-b from-sky-400 to-sky-200 rounded-lg mt-12 flex  flex-col xl:flex-row'>
       
 
 
@@ -16,6 +23,8 @@ const Landing = () => {
             width={570}
             height={570}
             priority={true}
+         
+            className='scale-75'
             // sizes="(min-width: 620px) 570px, calc(90vw + 30px)"
            // className='m-auto'
            />
